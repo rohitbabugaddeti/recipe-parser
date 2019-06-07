@@ -1,9 +1,8 @@
 import requests
-import pprint
 import extruct
 import validators
 from pathlib import Path
-import os
+
 headers= {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
 
 #method to check status of url
@@ -73,20 +72,3 @@ def parse(obj):
     out = clean_data(data)
     return out
 
-def test_parse():
-    dirname = os.path.dirname(__file__)
-    arg = Path(dirname + '/bevvy-irish-coffee.html')
-    pprint.pprint(parse(arg))
-    print('---------------------------------------')
-    f = open(arg, 'rt')
-    pprint.pprint(parse(f))
-    f.close()
-    print('-------------------------------')
-    arg = 'https://www.foodnetwork.com/recipes/alton-brown/honey-mustard-dressing-recipe-1939031'
-    pprint.pprint(parse(arg))
-
-    print('------------------------------')
-    pprint.pprint(parse('D:/GitHub/recipe-parser/bevvy-irish-coffee.html'))
-
-
-test_parse()
